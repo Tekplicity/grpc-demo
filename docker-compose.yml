@@ -1,0 +1,16 @@
+nginx:
+    image: nginx:alpine
+    volumes:
+        - ./client:/usr/share/nginx/html
+    ports:
+        - "80:80"
+
+server:
+    build: ./main
+    ports:
+        - "8080:8080"
+        
+app0:
+    build: ./main
+    ports:
+        - "8080:8080"
