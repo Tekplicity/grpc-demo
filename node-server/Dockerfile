@@ -1,16 +1,9 @@
-FROM node:6-alpine
+FROM node:7-alpine
 
-WORKDIR /opt/app
+WORKDIR /app
 
-ADD package.json yarn.lock /tmp/
+ADD package.json yarn.lock /app/
 
-RUN cd /tmp \
-    && yarn config set cache-folder ~/.yarn-cache \
+RUN yarn config set cache-folder ~/.yarn-cache \
     && yarn global add node-gyp \
     && yarn install --force
-
-# Link node_modules directory
-RUN mkdir -p /opt/app && cd /opt/app && ln -s /tmp/node_modules
-
-# Copy the code
-ADD . /opt/app

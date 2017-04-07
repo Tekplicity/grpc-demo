@@ -12,5 +12,9 @@
 
 node:
     build: ./node-server
+    command: gulp start
     ports:
         - "8080:8080"
+    volumes:
+        - ./node-server:/app
+        - /app/node_modules
