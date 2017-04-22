@@ -30,6 +30,7 @@ if(config.seedDB) { console.log('seeding...'); require('./config/seed'); }
 // The app
 var app = new koa();
 
+
 require('./config/server')(app);
 require('./routes')(app);
 

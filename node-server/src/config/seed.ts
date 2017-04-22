@@ -9,6 +9,13 @@ co(function*(){
         .find({})
         .remove();
         console.log('Removed!')
+
+
+        yield User.create({
+            name: 'Alex',
+            email: 'alexhgian@gmail.com',
+            password: 'pass'
+        })
     } catch(err){
         console.error('Error during seeding:', err);
     }
